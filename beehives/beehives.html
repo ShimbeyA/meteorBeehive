@@ -1,0 +1,40 @@
+<template name= "layout">
+<body> 
+  <h1>Mite Data Collection!</h1>
+ 
+  {{ >miteBeehive}}
+</body>
+</template>
+
+<template name ="miteBeehive">
+<form>
+ 
+    <div class="form-group">
+	<label for="miteName">Name</label>
+	<input type="text"  class= "form-control" name="miteName"/>
+    </div>
+	
+    <div class="form-group">
+	<label for="miteObservation">Observation Date</label>
+	<input type="text"  class= "form-control" name="miteObservation"/>
+    </div>
+    
+     <div class="form-group">
+	<label for="mitePeriod">Sample Period</label>
+	<input type="text"  class= "form-control" name="mitePeriod"/>
+    </div>
+     
+    <div class="form-group">
+	<label for="miteCount">Mite Count</label>
+	<input type="text"  class= "form-control" name="miteCount"/>
+    </div>
+
+	<button type="Submit" class="btn-btn-primary">Collect</button>
+ 
+ </form>
+
+      {{#each mites}}
+	  <p><a href="{{pathFor route ='mites.show'}}">{{name}} {{observation}} {{period}} {{count}} - {{createdOn}}</a></p>
+      {{/each}}
+  
+</template>
