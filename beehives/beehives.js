@@ -1,11 +1,37 @@
 Mites = new Mongo.Collection("mites");
 
-Router.route('/', function () {
+Router.route('/home', function () {
   
       this.render ('miteBeehive'); //render mitebeehive template 
       this.layout('layout');
   
   });
+Router.route('/admin', function () {
+  this.render('observe');
+  this.layout('layout');
+});
+
+Router.route('/export', function () {
+  this.render('observe');
+  this.layout('layout');
+});
+
+
+Router.route('/hive/:name', function () {
+ this.render('hiveName', {
+   data: function (){
+     return {
+      hiveName: Observation.find({name: this.params.name})
+     }
+   }
+  });
+  
+    this.layout('layout');
+  }, {
+    name: 'hiveName.show'
+  });
+
+
 Router.route('/mites/:_id', function () {
   //data is a specific keyword in meteor that
   //calls on message that was entered

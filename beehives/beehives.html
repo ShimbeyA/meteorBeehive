@@ -32,9 +32,59 @@
 	<button type="Submit" class="btn-btn-primary">Collect</button>
  
  </form>
-
-      {{#each mites}}
+    {{#each mites}}
 	  <p><a href="{{pathFor route ='mites.show'}}">{{name}} {{observation}} {{period}} {{count}} - {{createdOn}}</a></p>
       {{/each}}
+      
+</template>
+
+<template name="observe">  
   
+  <h3>This is all the observations</h3>  
+  <div class="row">   
+    <table class="table table-bordered">
+      <thead>
+        <th>Hive Name</th>
+        <th>Observation Date</th>
+        <th>Mite Count</th>
+        <th>Duration</th>
+        <th>CreatedOn</th>
+      </thead>
+      
+      {{#each observation}}
+      
+      <tr>
+        <td>{{miteName}}</td>
+        <td>{{miteObservation}}</td>
+        <td>{{miteCount}}</td>
+        <td>{{mitePeriod}}</td>
+        <td>{{createdOn}}</td>
+      </tr>
+      
+      {{/each}}
+    </table>
+  </div> 
+</template>
+
+<template name="hiveName">
+  <div class="row">
+    <h3>Each Hive data</h3>
+    <table class="table table-bordered">
+    <thead>
+      <th>Hive Name</th>
+      <th>Observation Date</th>
+      <th>Mite Count</th>
+      <th>duration</th>
+    </thead>
+    {{#each hiveName}}
+    <tr>
+      <td>{{miteName}}</td>
+      <td>{{miteObservation}}</td>
+      <td>{{miteCount}}</td>
+      <td>{{mitePeriod}}</td>
+      <td>{{createdOn}}</td>
+    </tr>
+    {{/each}}
+    </table>
+  </div>  
 </template>
